@@ -89,10 +89,10 @@ a.meta:hover{color:var(--accent)}
 /* ---- 卡片内截图带 ---- */
 .card-grid{display:flex;gap:24px;align-items:flex-start}
 .card-main{flex:1 1 auto;min-width:0}
-.shots{display:flex;gap:9px;flex:0 0 auto}
+.shots{display:flex;gap:9px;flex:0 0 auto;align-items:flex-start}
 .shots img{
-  width:104px;aspect-ratio:1/1.9;object-fit:cover;object-position:center top;
-  border-radius:9px;border:1px solid var(--border);display:block;
+  width:104px;height:auto;display:block;
+  border-radius:9px;border:1px solid var(--border);
   transition:transform .18s,border-color .18s;
 }
 .shots img:hover{transform:translateY(-3px);border-color:var(--accent)}
@@ -178,9 +178,9 @@ footer{
             </ul>
           </div>
           <div class="shots">
-            <img src="assets/app-schedule.jpg" alt="教师端课程表" width="360" height="667" loading="lazy">
-            <img src="assets/app-approval.jpg" alt="约课审批中心" width="360" height="667" loading="lazy">
-            <img src="assets/app-booking.jpg" alt="学生端约课" width="360" height="667" loading="lazy">
+            <img src="assets/app-schedule.jpg" alt="教师端课程表" width="104" height="193" loading="lazy">
+            <img src="assets/app-approval.jpg" alt="约课审批中心" width="104" height="193" loading="lazy">
+            <img src="assets/app-booking.jpg" alt="学生端约课" width="104" height="193" loading="lazy">
           </div>
         </div>
       </article>
@@ -204,9 +204,9 @@ footer{
             </ul>
           </div>
           <div class="shots">
-            <img src="assets/game-home.jpg" alt="主界面" width="360" height="766" loading="lazy">
-            <img src="assets/game-upgrade.jpg" alt="属性升级" width="360" height="766" loading="lazy">
-            <img src="assets/game-skill.jpg" alt="战斗与技能效果" width="360" height="766" loading="lazy">
+            <img src="assets/game-home.jpg" alt="主界面" width="104" height="221" loading="lazy">
+            <img src="assets/game-upgrade.jpg" alt="属性升级" width="104" height="221" loading="lazy">
+            <img src="assets/game-skill.jpg" alt="战斗与技能效果" width="104" height="221" loading="lazy">
           </div>
         </div>
       </article>
