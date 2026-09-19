@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lucky8197.github.io/sitemap.xml

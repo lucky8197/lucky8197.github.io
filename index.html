@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  个人作品集 · 单页静态站
+  ------------------------------------------------------------
+  怎么改：
+  1. 改文字 —— 直接在下面找中文内容，替换即可（标了 待替换 的地方）
+  2. 加一个项目 —— 复制 <article class="card"> 整块，粘到 .projects 里
+  3. 加一个技能标签 —— 复制 <li> 一项
+  4. 改完保存，推送到 GitHub 就会自动更新（约 1 分钟生效）
+  ============================================================
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liang Luo · 作品集</title>
+<meta name="description" content="Liang Luo 的个人作品集 —— 项目与作品展示。">
+<meta property="og:title" content="Liang Luo · 作品集">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#fbfbfa;--surface:#fff;--text:#17171a;--muted:#6d6d72;
+  --border:rgba(0,0,0,.09);--accent:#2563eb;--accent-soft:rgba(37,99,235,.08);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#101012;--surface:#191919;--text:#f2f2f0;--muted:#9b9ba1;
+    --border:rgba(255,255,255,.11);--accent:#6ea8fe;--accent-soft:rgba(110,168,254,.13);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0;padding:0 24px 72px;background:var(--bg);color:var(--text);
+  font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto}
+
+/* ---- 顶部 ---- */
+.hero{padding:88px 0 56px;border-bottom:1px solid var(--border)}
+.avatar{
+  width:64px;height:64px;border-radius:20px;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;font-weight:600;margin-bottom:24px;
+}
+h1{font-size:34px;line-height:1.25;margin:0 0 12px;font-weight:600;letter-spacing:-.02em}
+.tagline{margin:0 0 24px;color:var(--muted);font-size:17px}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.links a{
+  padding:7px 15px;border:1px solid var(--border);border-radius:999px;
+  color:var(--text);text-decoration:none;font-size:14px;
+  transition:border-color .18s,background .18s,color .18s;
+}
+.links a:hover{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+
+/* ---- 区块 ---- */
+section{padding:56px 0 0}
+h2{
+  font-size:15px;font-weight:600;margin:0 0 20px;
+  display:flex;align-items:center;gap:9px;
+}
+h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
+.about p{margin:0;color:var(--muted)}
+.skills{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:20px 0 0;list-style:none}
+.skills li{
+  font-size:13px;color:var(--muted);padding:4px 11px;
+  border:1px solid var(--border);border-radius:6px;
+}
+
+/* ---- 项目卡片 ---- */
+.projects{display:grid;gap:14px}
+.card{
+  padding:22px 24px;background:var(--surface);
+  border:1px solid var(--border);border-radius:14px;
+  transition:border-color .18s,transform .18s;
+}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:9px}
+.card h3{font-size:17px;margin:0;font-weight:600}
+.card-head a{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s}
+.card-head a:hover{color:var(--accent)}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.tags{list-style:none;padding:0;margin:15px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
+
+/* ---- 页脚 ---- */
+footer{
+  margin-top:72px;padding-top:28px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:13px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+
+@media (max-width:560px){
+  body{padding:0 18px 56px}
+  .hero{padding:56px 0 40px}
+  h1{font-size:27px}
+  .avatar{width:56px;height:56px;border-radius:18px;font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="avatar">LL</div>
+    <h1>Liang Luo</h1>
+    <p class="tagline">写代码，也把事讲清楚。</p>
+    <nav class="links">
+      <a href="https://github.com/lucky8197">GitHub</a>
+      <a href="mailto:your-email@example.com">邮箱</a>
+    </nav>
+  </header>
+
+  <section class="about">
+    <h2>关于</h2>
+    <p>
+      待替换 —— 用两三句话说明你是谁、在做什么、擅长什么。
+      比如：专注微信小程序与 Web 前端开发，做过从 0 到 1 的产品，
+      关心的是把复杂的事情做得足够简单。
+    </p>
+    <ul class="skills">
+      <li>微信小程序</li>
+      <li>JavaScript / TypeScript</li>
+      <li>HTML / CSS</li>
+      <li>Node.js</li>
+      <li>待替换</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>项目</h2>
+    <div class="projects">
+
+      <article class="card">
+        <div class="card-head">
+          <h3>个人作品集站点</h3>
+          <a href="https://github.com/lucky8197/lucky8197.github.io">源码</a>
+        </div>
+        <p>你现在看到的这个页面。纯静态单页，托管在 GitHub Pages，无构建步骤、无第三方依赖。</p>
+        <ul class="tags">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>GitHub Pages</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3>待替换 · 项目名称</h3>
+          <a href="#">链接</a>
+        </div>
+        <p>一句话说清这个项目解决了什么问题、你在里面做了什么。别写「一个 xx 系统」，写清具体价值。</p>
+        <ul class="tags">
+          <li>待替换</li>
+          <li>技术栈</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3>待替换 · 项目名称</h3>
+          <a href="#">链接</a>
+        </div>
+        <p>同上。建议放 3 到 5 个，宁缺毋滥 —— 一个讲透的项目比五个一句话的更有说服力。</p>
+        <ul class="tags">
+          <li>待替换</li>
+          <li>技术栈</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>© <span id="y">2026</span> Liang Luo</span>
+    <span>Hosted on GitHub Pages</span>
+  </footer>
+
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
