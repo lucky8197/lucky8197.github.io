@@ -14,9 +14,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Liang Luo · 作品集</title>
-<meta name="description" content="Liang Luo 的个人作品集 —— 项目与作品展示。">
-<meta property="og:title" content="Liang Luo · 作品集">
+<title>罗亮 · 作品集</title>
+<meta name="description" content="罗亮的作品集：7 年跨端开发，覆盖 C++/Qt 桌面客户端、Web 全栈与微信小程序 / 小游戏。">
+<meta property="og:title" content="罗亮 · 作品集">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
@@ -62,7 +62,8 @@ h2{
   display:flex;align-items:center;gap:9px;
 }
 h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
-.about p{margin:0;color:var(--muted)}
+.about p{margin:0 0 14px;color:var(--muted)}
+.about p:last-of-type{margin-bottom:0}
 .skills{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:20px 0 0;list-style:none}
 .skills li{
   font-size:13px;color:var(--muted);padding:4px 11px;
@@ -79,8 +80,8 @@ h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--a
 .card:hover{border-color:var(--accent);transform:translateY(-2px)}
 .card-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:9px}
 .card h3{font-size:17px;margin:0;font-weight:600}
-.card-head a{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s}
-.card-head a:hover{color:var(--accent)}
+.card-head .meta{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s}
+a.meta:hover{color:var(--accent)}
 .card p{margin:0;color:var(--muted);font-size:14.5px}
 .tags{list-style:none;padding:0;margin:15px 0 0;display:flex;flex-wrap:wrap;gap:7px}
 .tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
@@ -104,9 +105,9 @@ footer{
 <div class="wrap">
 
   <header class="hero">
-    <div class="avatar">LL</div>
-    <h1>Liang Luo</h1>
-    <p class="tagline">写代码，也把事讲清楚。</p>
+    <div class="avatar">罗</div>
+    <h1>罗亮</h1>
+    <p class="tagline">7 年跨端开发。从 C++/Qt 桌面客户端，到微信小程序与游戏 —— 独立交付并持续运营 2 款线上产品。</p>
     <nav class="links">
       <a href="https://github.com/lucky8197">GitHub</a>
       <a href="mailto:1245052165@qq.com">邮箱</a>
@@ -116,9 +117,12 @@ footer{
   <section class="about">
     <h2>关于</h2>
     <p>
-      待替换 —— 用两三句话说明你是谁、在做什么、擅长什么。
-      比如：专注微信小程序与 Web 前端开发，做过从 0 到 1 的产品，
-      关心的是把复杂的事情做得足够简单。
+      7 年开发经验，覆盖三条技术线：C++/Qt 桌面与跨平台客户端、Web 全栈、微信小程序与小游戏。
+      从需求分析、架构设计到上线运维可以独立走完，已自主交付并持续运营 2 款线上产品。
+    </p>
+    <p>
+      OpenHarmony Qt 生态核心贡献者，主导窗口系统与焦点管理等底层模块的适配，为钉钉、360 压缩等厂商
+      提供过技术支持。遇到疑难问题习惯翻官方文档和底层源码找根因，而不是绕过去。
     </p>
     <ul class="skills">
       <li>C++ / Qt</li>
@@ -140,38 +144,52 @@ footer{
 
       <article class="card">
         <div class="card-head">
-          <h3>个人作品集站点</h3>
-          <a href="https://github.com/lucky8197/lucky8197.github.io">源码</a>
+          <h3>排课侠 · 微信小程序</h3>
+          <span class="meta">已上线</span>
         </div>
-        <p>你现在看到的这个页面。纯静态单页，托管在 GitHub Pages，无构建步骤、无第三方依赖。</p>
+        <p>
+          面向琴行与培训机构的排课工具，微信中可直接搜索使用。老师设定每周时段，学生扫码绑定机构后自主约课，
+          系统自动完成冲突检测，约课与请假走审批流，串联起排课 — 约课 — 请假 — 点评全流程。
+          独立完成 15 个页面、19 个云函数、5 个数据库集合的全栈开发。
+        </p>
         <ul class="tags">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>GitHub Pages</li>
+          <li>uni-app</li>
+          <li>Vue3 + TypeScript</li>
+          <li>微信云开发</li>
         </ul>
       </article>
 
       <article class="card">
         <div class="card-head">
-          <h3>待替换 · 项目名称</h3>
-          <a href="#">链接</a>
+          <h3>暗能共鸣 · 微信小游戏</h3>
+          <span class="meta">已上线</span>
         </div>
-        <p>一句话说清这个项目解决了什么问题、你在里面做了什么。别写「一个 xx 系统」，写清具体价值。</p>
+        <p>
+          2D 竖屏生存射击游戏，已通过审核正式上线。自研混合 ECS + OOP 引擎：11 种组件 SoA 存储、
+          9 个系统有序调度、实体复用与事件总线解耦；Boss 多阶段技能状态机，空间哈希 + 对象池
+          支撑同屏大量实体。运行时零第三方依赖。
+        </p>
         <ul class="tags">
-          <li>待替换</li>
-          <li>技术栈</li>
+          <li>TypeScript</li>
+          <li>Canvas 2D</li>
+          <li>自研 ECS 架构</li>
         </ul>
       </article>
 
       <article class="card">
         <div class="card-head">
-          <h3>待替换 · 项目名称</h3>
-          <a href="#">链接</a>
+          <h3>Qt 鸿蒙化适配</h3>
+          <a class="meta" href="https://gitcode.com/openharmony-sig/qt">开源仓库</a>
         </div>
-        <p>同上。建议放 3 到 5 个，宁缺毋滥 —— 一个讲透的项目比五个一句话的更有说服力。</p>
+        <p>
+          让 Qt 应用能原生运行在 HarmonyOS Next 上。主导窗口系统与焦点管理模块实现，完成 QPlatformServices
+          等核心平台接口适配，并独立开发 qtohextras 鸿蒙扩展模块（权限管理、文件持久化授权、Ability 启动、
+          子进程管理）。同步为钉钉、360 压缩、福昕 OFD 等厂商提供鸿蒙适配技术支持。
+        </p>
         <ul class="tags">
-          <li>待替换</li>
-          <li>技术栈</li>
+          <li>C++ / Qt</li>
+          <li>OpenHarmony</li>
+          <li>IPC / 跨进程</li>
         </ul>
       </article>
 
@@ -179,7 +197,7 @@ footer{
   </section>
 
   <footer>
-    <span>© <span id="y">2026</span> Liang Luo</span>
+    <span>© <span id="y">2026</span> 罗亮</span>
     <span>Hosted on GitHub Pages</span>
   </footer>
 
