@@ -81,7 +81,8 @@ h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--a
 .card-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:9px}
 .card h3{font-size:17px;margin:0;font-weight:600}
 .card-head .meta{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s}
-a.meta:hover{color:var(--accent)}
+a.meta{color:var(--accent)}
+a.meta:hover{text-decoration:underline}
 .card p{margin:0;color:var(--muted);font-size:14.5px}
 .tags{list-style:none;padding:0;margin:15px 0 0;display:flex;flex-wrap:wrap;gap:7px}
 .tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
@@ -215,7 +216,7 @@ footer{
       <article class="card">
         <div class="card-head">
           <h3>Qt 鸿蒙化适配</h3>
-          <a class="meta" href="https://gitcode.com/openharmony-sig/qt">开源仓库</a>
+          <a class="meta" href="https://gitcode.com/openharmony-sig/qt" target="_blank" rel="noopener">gitcode.com/openharmony-sig/qt ↗</a>
         </div>
         <p>
           让 Qt 应用能原生运行在 HarmonyOS Next 上。主导窗口系统与焦点管理模块实现，完成 QPlatformServices
