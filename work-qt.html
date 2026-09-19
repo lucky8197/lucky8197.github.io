@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qt 鸿蒙化适配 · OpenHarmony — Liang Luo</title>
+<meta name="description" content="Qt 框架在 HarmonyOS Next 上的原生适配，OpenHarmony Qt 生态核心贡献，主导窗口系统、焦点管理与 qtohextras 扩展模块开发。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fbfbfa;--surface:#fff;--text:#17171a;--muted:#6d6d72;--border:rgba(0,0,0,.09);--accent:#2563eb;--accent-soft:rgba(37,99,235,.08)}
+@media (prefers-color-scheme:dark){
+:root{--bg:#101012;--surface:#191919;--text:#f2f2f0;--muted:#9b9ba1;--border:rgba(255,255,255,.11);--accent:#6ea8fe;--accent-soft:rgba(110,168,254,.13)}
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 24px 72px;background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:32px;padding:7px 15px;border:1px solid var(--border);border-radius:999px;color:var(--muted);text-decoration:none;font-size:13px;transition:border-color .18s,color .18s}
+.back:hover{border-color:var(--accent);color:var(--accent)}
+.hero{padding:36px 0 8px}
+.hero .flag{display:inline-block;font-size:12px;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:5px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.3;margin:0 0 10px;font-weight:600;letter-spacing:-.02em}
+.tagline{margin:0;color:var(--muted);font-size:15px}
+section{padding:44px 0 0}
+h2{font-size:15px;font-weight:600;margin:0 0 18px;display:flex;align-items:center;gap:9px}
+h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
+.about p{margin:0 0 14px;color:var(--muted)}
+.about p:last-of-type{margin-bottom:0}
+.points{list-style:none;padding:0;margin:0}
+.points li{position:relative;padding:0 0 14px 20px;color:var(--muted);font-size:14.5px}
+.points li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.points b{color:var(--text);font-weight:500}
+.repo-card{padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:14px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
+.repo-card .label{font-size:13px;color:var(--muted);flex:0 0 64px}
+.repo-card a{color:var(--accent);text-decoration:none;font-size:14px;transition:opacity .18s}
+.repo-card a:hover{opacity:.75}
+.tags{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;transition:color .18s}
+footer a:hover{color:var(--accent)}
+@media (max-width:560px){
+  body{padding:0 18px 56px}
+  h1{font-size:24px}
+  .repo-card .label{flex-basis:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="/">← 返回作品集</a>
+
+  <header class="hero">
+    <span class="flag">OpenHarmony Qt 生态 · 核心贡献者</span>
+    <h1>Qt 鸿蒙化适配</h1>
+    <p class="tagline">让基于 Qt 的桌面应用能原生运行在 HarmonyOS Next 上 · C++ / Qt / OpenHarmony</p>
+  </header>
+
+  <section class="about">
+    <h2>项目介绍</h2>
+    <p>
+      Qt 官方并没有鸿蒙后端。这个项目为 Qt 补上了这一块：实现 Qt 在 HarmonyOS Next 上的平台适配层，
+      让存量 Qt 应用不需要重写就能直接编译运行在鸿蒙设备上，加速国产软件的鸿蒙化进程。
+      我作为 OpenHarmony Qt 生态的核心贡献者参与其中，主导了多个底层模块的实现。
+    </p>
+    <p>
+      这类适配工作的难点在于：要同时吃透 Qt 的跨平台抽象层（QPA）与鸿蒙的系统底层架构，
+      并在两者之间搭起完整的能力映射。
+    </p>
+    <ul class="tags">
+      <li>C++ / Qt</li>
+      <li>OpenHarmony</li>
+      <li>QPA 平台插件</li>
+      <li>IPC / 跨进程</li>
+      <li>DevEco Studio</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>工作内容</h2>
+    <ul class="points">
+      <li><b>窗口系统与焦点管理</b> —— 主导 Qt 在鸿蒙上窗口系统与焦点管理模块的实现，这是所有 GUI 应用正常交互的前提。</li>
+      <li><b>核心平台接口适配</b> —— 完成 QPlatformServices 等核心平台接口在鸿蒙环境下的适配，确保 Qt 应用具备完整的原生交互能力。</li>
+      <li><b>qtohextras 扩展模块</b> —— 独立开发的鸿蒙扩展模块，封装权限管理、文件持久化授权、启动 Ability、子进程管理等系统级能力，为上层应用提供统一、跨平台的 API。</li>
+      <li><b>功能模块适配</b> —— 负责 qtlocation、qtconnectivity 等模块的鸿蒙平台适配。</li>
+      <li><b>关键技术课题</b> —— 参与「多进程运行架构」「跨进程窗口嵌入」的研究与实现，深入进程间通信（IPC）、窗口句柄共享与 UI 跨进程集成方案。</li>
+      <li><b>测试体系</b> —— 构建 Qt 常见模块的自动化测试与性能测试的鸿蒙适配，验证核心功能在鸿蒙平台上的完整性。</li>
+      <li><b>厂商技术支持</b> —— 为书生电子、福昕 OFD、CajViewer、钉钉、360 压缩、像素蛋糕等软件厂商提供鸿蒙开发环境搭建指导与技术支持。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>代码仓库</h2>
+    <div class="repo-card">
+      <span class="label">GitCode</span>
+      <a href="https://gitcode.com/openharmony-sig/qt" target="_blank" rel="noopener">gitcode.com/openharmony-sig/qt ↗</a>
+      <span class="label">Gitee</span>
+      <a href="https://gitee.com/openharmony-sig/qt" target="_blank" rel="noopener">gitee.com/openharmony-sig/qt ↗</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© <span id="y">2026</span> Liang Luo</span>
+    <a href="/">返回作品集 →</a>
+  </footer>
+
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

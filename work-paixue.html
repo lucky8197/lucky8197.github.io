@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>排课侠 · 微信小程序 — Liang Luo</title>
+<meta name="description" content="排课侠：面向琴行与培训机构的排课微信小程序，uni-app + 微信云开发全栈实现，已上线。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fbfbfa;--surface:#fff;--text:#17171a;--muted:#6d6d72;--border:rgba(0,0,0,.09);--accent:#2563eb;--accent-soft:rgba(37,99,235,.08)}
+@media (prefers-color-scheme:dark){
+:root{--bg:#101012;--surface:#191919;--text:#f2f2f0;--muted:#9b9ba1;--border:rgba(255,255,255,.11);--accent:#6ea8fe;--accent-soft:rgba(110,168,254,.13)}
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 24px 72px;background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:32px;padding:7px 15px;border:1px solid var(--border);border-radius:999px;color:var(--muted);text-decoration:none;font-size:13px;transition:border-color .18s,color .18s}
+.back:hover{border-color:var(--accent);color:var(--accent)}
+.hero{padding:36px 0 8px}
+.hero .flag{display:inline-block;font-size:12px;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:5px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.3;margin:0 0 10px;font-weight:600;letter-spacing:-.02em}
+.tagline{margin:0;color:var(--muted);font-size:15px}
+section{padding:44px 0 0}
+h2{font-size:15px;font-weight:600;margin:0 0 18px;display:flex;align-items:center;gap:9px}
+h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
+.about p{margin:0 0 14px;color:var(--muted)}
+.about p:last-of-type{margin-bottom:0}
+.points{list-style:none;padding:0;margin:0}
+.points li{position:relative;padding:0 0 14px 20px;color:var(--muted);font-size:14.5px}
+.points li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.points b{color:var(--text);font-weight:500}
+.gallery{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 14px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.gallery a{flex:0 0 auto;display:block;line-height:0;border-radius:12px;scroll-snap-align:start}
+.gallery img{width:230px;height:auto;display:block;border-radius:12px;border:1px solid var(--border);transition:transform .18s,border-color .18s}
+.gallery img:hover{transform:translateY(-3px);border-color:var(--accent)}
+.gal-hint{color:var(--muted);font-size:12.5px;margin:-4px 0 0}
+.tags{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;transition:color .18s}
+footer a:hover{color:var(--accent)}
+@media (max-width:560px){
+  body{padding:0 18px 56px}
+  h1{font-size:24px}
+  .gallery img{width:200px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="/">← 返回作品集</a>
+
+  <header class="hero">
+    <span class="flag">已上线 · 微信搜索「排课侠」</span>
+    <h1>排课侠 · 微信小程序</h1>
+    <p class="tagline">面向琴行与培训机构的排课工具 · uni-app + 微信云开发全栈实现</p>
+  </header>
+
+  <section class="about">
+    <h2>项目介绍</h2>
+    <p>
+      排课侠解决的是琴行、培训机构里「老师的时间表」和「学生的约课需求」对不上的问题。
+      老师设定每周可约时段，学生凭邀请码绑定机构后自主约课，系统实时做冲突检测；
+      约课与请假都要走审批流，把排课、约课、请假、课后点评串成完整闭环。
+    </p>
+    <p>
+      项目从设计、开发到上线运维由我一个人完成，微信中搜索「排课侠」即可直接使用。
+    </p>
+    <ul class="tags">
+      <li>uni-app</li>
+      <li>Vue3 + TypeScript</li>
+      <li>Vite</li>
+      <li>微信云开发（云函数 + 云数据库）</li>
+      <li>微信订阅消息</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>技术要点</h2>
+    <ul class="points">
+      <li><b>时间片调度引擎</b> —— 跨 teacher_schedules / lessons 两表实时计算可约时段，支持固定排课批量生成与灵活约课双模式，全流程冲突预检。</li>
+      <li><b>全栈规模</b> —— 独立完成 15 个页面、19 个云函数、5 个数据库集合；师生双角色切换、邀请码机构绑定、约课 / 请假双审批流、月度统计闭环。</li>
+      <li><b>云开发配额优化</b> —— 针对云开发基础套餐配额，用批量云函数合并 N 次调用、内联通知替代二级调用，单次约课业务减少 2 次函数调用与网络往返，降低资源点消耗与冷启动概率。</li>
+      <li><b>订阅消息额度池</b> —— 本地维护 3 个模板的一次性订阅授权额度池，授权充足时自动跳过订阅弹窗，平衡通知触达与用户打扰。</li>
+      <li><b>持续迭代</b> —— 已迭代 8 个版本并持续维护（定时上课提醒、朋友圈分享、课后点评等）。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>界面截图</h2>
+    <div class="gallery">
+      <a href="assets/app-schedule.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/app-schedule.jpg" alt="教师端课程表" width="480" height="890" loading="lazy"></a>
+      <a href="assets/app-approval.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/app-approval.jpg" alt="约课审批中心" width="480" height="890" loading="lazy"></a>
+      <a href="assets/app-booking.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/app-booking.jpg" alt="学生端约课" width="480" height="890" loading="lazy"></a>
+      <a href="assets/app-times.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/app-times.jpg" alt="可约时段设置" width="480" height="890" loading="lazy"></a>
+      <a href="assets/app-teacher.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/app-teacher.jpg" alt="教师端个人中心" width="480" height="890" loading="lazy"></a>
+    </div>
+    <p class="gal-hint">左右滑动查看，点击可放大原图。</p>
+  </section>
+
+  <footer>
+    <span>© <span id="y">2026</span> Liang Luo</span>
+    <a href="/">返回作品集 →</a>
+  </footer>
+
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

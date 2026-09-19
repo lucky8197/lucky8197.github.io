@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>暗能共鸣 · 微信小游戏 — Liang Luo</title>
+<meta name="description" content="暗能共鸣：2D 竖屏生存射击微信小游戏，TypeScript + Canvas 2D，自研混合 ECS 架构，已通过审核上线。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fbfbfa;--surface:#fff;--text:#17171a;--muted:#6d6d72;--border:rgba(0,0,0,.09);--accent:#2563eb;--accent-soft:rgba(37,99,235,.08)}
+@media (prefers-color-scheme:dark){
+:root{--bg:#101012;--surface:#191919;--text:#f2f2f0;--muted:#9b9ba1;--border:rgba(255,255,255,.11);--accent:#6ea8fe;--accent-soft:rgba(110,168,254,.13)}
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 24px 72px;background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:32px;padding:7px 15px;border:1px solid var(--border);border-radius:999px;color:var(--muted);text-decoration:none;font-size:13px;transition:border-color .18s,color .18s}
+.back:hover{border-color:var(--accent);color:var(--accent)}
+.hero{padding:36px 0 8px}
+.hero .flag{display:inline-block;font-size:12px;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:5px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.3;margin:0 0 10px;font-weight:600;letter-spacing:-.02em}
+.tagline{margin:0;color:var(--muted);font-size:15px}
+section{padding:44px 0 0}
+h2{font-size:15px;font-weight:600;margin:0 0 18px;display:flex;align-items:center;gap:9px}
+h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
+.about p{margin:0 0 14px;color:var(--muted)}
+.about p:last-of-type{margin-bottom:0}
+.points{list-style:none;padding:0;margin:0}
+.points li{position:relative;padding:0 0 14px 20px;color:var(--muted);font-size:14.5px}
+.points li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.points b{color:var(--text);font-weight:500}
+.gallery{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 14px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.gallery a{flex:0 0 auto;display:block;line-height:0;border-radius:12px;scroll-snap-align:start}
+.gallery img{width:230px;height:auto;display:block;border-radius:12px;border:1px solid var(--border);transition:transform .18s,border-color .18s}
+.gallery img:hover{transform:translateY(-3px);border-color:var(--accent)}
+.gal-hint{color:var(--muted);font-size:12.5px;margin:-4px 0 0}
+.tags{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;transition:color .18s}
+footer a:hover{color:var(--accent)}
+@media (max-width:560px){
+  body{padding:0 18px 56px}
+  h1{font-size:24px}
+  .gallery img{width:200px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="/">← 返回作品集</a>
+
+  <header class="hero">
+    <span class="flag">已通过审核 · 正式上线</span>
+    <h1>暗能共鸣 · 微信小游戏</h1>
+    <p class="tagline">2D 竖屏生存射击 · TypeScript + Canvas 2D · 自研混合 ECS 引擎 · 运行时零第三方依赖</p>
+  </header>
+
+  <section class="about">
+    <h2>项目介绍</h2>
+    <p>
+      《暗能共鸣》是一款 2D 竖屏生存射击小游戏（类《吸血鬼幸存者》玩法）：玩家在不断涌来的怪物潮中生存，
+      一边拾取经验升级技能组合，一边挑战多阶段进化的 Boss。适配刘海屏 / 挖孔屏等主流机型，
+      运行时零第三方依赖——包括引擎在内全部自研。
+    </p>
+    <ul class="tags">
+      <li>TypeScript</li>
+      <li>Canvas 2D</li>
+      <li>自研 ECS 架构</li>
+      <li>对象池 / 空间哈希</li>
+      <li>微信流量主</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>技术要点</h2>
+    <ul class="points">
+      <li><b>自研混合 ECS + OOP 引擎</b> —— 实体复用（freelist）、11 种组件 SoA 存储、9 个系统的有序调度、事件总线解耦，兼顾性能与可维护性。</li>
+      <li><b>技能系统</b> —— 10 个主动 / 被动技能，各 8 级成长（关键等级触发质变效果），5 组技能 Combo 联动。</li>
+      <li><b>Boss 战</b> —— 3 位 Boss 按血量多阶段进化（技能状态机），实现重锤预警、冲撞、追踪符咒、旋转激光、落雷等机制原语。</li>
+      <li><b>性能工程</b> —— 空间哈希 + 对象池支撑同屏大量实体；依据云测报告定位并修复 iOS 高 CPU 与内存峰值，对绘制热路径做零分配改造（内联向量、快照迭代、状态切换裁剪），粒子预算随 FPS 自适应。</li>
+      <li><b>内容迭代（5 期）</b> —— 局内商店与 6 件遗物、随机事件、每日挑战（日期种子确定性生成）、4 角色差异化、图鉴 + 17 项成就。</li>
+      <li><b>商业化与社区</b> —— 接入微信流量主，激励视频复用贯穿「广告复活 / 结算金币 ×2 / 开局增益」三处玩法位，插屏广告单实例复用 + 局间隔频控（对局生态节奏优先）；开通游戏圈并内置入口，日常运营玩家社区。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>游戏截图</h2>
+    <div class="gallery">
+      <a href="assets/game-home.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-home.jpg" alt="主界面" width="480" height="1021" loading="lazy"></a>
+      <a href="assets/game-upgrade.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-upgrade.jpg" alt="属性升级" width="480" height="1021" loading="lazy"></a>
+      <a href="assets/game-skilllist.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-skilllist.jpg" alt="技能列表" width="480" height="1021" loading="lazy"></a>
+      <a href="assets/game-skill.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-skill.jpg" alt="技能组合与范围效果" width="480" height="1021" loading="lazy"></a>
+      <a href="assets/game-battle-1.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-battle-1.jpg" alt="战斗画面" width="480" height="1021" loading="lazy"></a>
+      <a href="assets/game-battle-5.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-battle-5.jpg" alt="第二波战斗" width="480" height="1021" loading="lazy"></a>
+    </div>
+    <p class="gal-hint">左右滑动查看，点击可放大原图。</p>
+  </section>
+
+  <footer>
+    <span>© <span id="y">2026</span> Liang Luo</span>
+    <a href="/">返回作品集 →</a>
+  </footer>
+
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
