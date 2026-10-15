@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>找不同闯关 · H5 活动游戏 — Liang Luo</title>
+<meta name="description" content="找不同闯关 H5 活动游戏：找不同 + 答题绑定 + 大转盘抽奖完整闭环，Vue 3 + Fastify + MySQL 实现，服务端命中判定与合规抽奖，另有 Taro 小程序端。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fbfbfa;--surface:#fff;--text:#17171a;--muted:#6d6d72;--border:rgba(0,0,0,.09);--accent:#2563eb;--accent-soft:rgba(37,99,235,.08)}
+@media (prefers-color-scheme:dark){
+:root{--bg:#101012;--surface:#191919;--text:#f2f2f0;--muted:#9b9ba1;--border:rgba(255,255,255,.11);--accent:#6ea8fe;--accent-soft:rgba(110,168,254,.13)}
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 24px 72px;background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:32px;padding:7px 15px;border:1px solid var(--border);border-radius:999px;color:var(--muted);text-decoration:none;font-size:13px;transition:border-color .18s,color .18s}
+.back:hover{border-color:var(--accent);color:var(--accent)}
+.hero{padding:36px 0 8px}
+.hero .flag{display:inline-block;font-size:12px;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:5px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.3;margin:0 0 10px;font-weight:600;letter-spacing:-.02em}
+.tagline{margin:0;color:var(--muted);font-size:15px}
+section{padding:44px 0 0}
+h2{font-size:15px;font-weight:600;margin:0 0 18px;display:flex;align-items:center;gap:9px}
+h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
+.about p{margin:0 0 14px;color:var(--muted)}
+.about p:last-of-type{margin-bottom:0}
+.points{list-style:none;padding:0;margin:0}
+.points li{position:relative;padding:0 0 14px 20px;color:var(--muted);font-size:14.5px}
+.points li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.points b{color:var(--text);font-weight:500}
+.gallery{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 14px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.gallery a{flex:0 0 auto;display:block;line-height:0;border-radius:12px;scroll-snap-align:start}
+.gallery img{width:230px;height:auto;display:block;border-radius:12px;border:1px solid var(--border);transition:transform .18s,border-color .18s}
+.gallery img:hover{transform:translateY(-3px);border-color:var(--accent)}
+.gal-hint{color:var(--muted);font-size:12.5px;margin:-4px 0 0}
+.tags{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;transition:color .18s}
+footer a:hover{color:var(--accent)}
+@media (max-width:560px){
+  body{padding:0 18px 56px}
+  h1{font-size:24px}
+  .gallery img{width:200px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="/">← 返回作品集</a>
+
+  <header class="hero">
+    <span class="flag">成品工程 · H5 + 小程序双端</span>
+    <h1>找不同闯关 · H5 活动游戏</h1>
+    <p class="tagline">找不同 + 答题绑定 + 大转盘 · Vue 3 / Fastify / Taro 三端实现</p>
+  </header>
+
+  <section class="about">
+    <h2>项目介绍</h2>
+    <p>
+      一套可直接部署上线的营销活动游戏：玩家在 3 个关卡中分别找出 5 / 7 / 10 处不同；
+      卡关时点「获取提示」弹答题，答对解锁 1 处位置提示；找齐后弹通关答题，答对进下一关；
+      三关全部通过解锁大转盘，抽中实物填写收货信息。从玩法、判定、抽奖到概率公示是一条完整闭环。
+    </p>
+    <p>
+      前端 H5（Vue 3）与小程序（Taro + React）共用同一套后端接口；后端 Fastify + Prisma + MySQL，
+      Docker 两阶段构建，可部署到微信云托管或任意服务器。
+    </p>
+    <ul class="tags">
+      <li>Vue 3</li>
+      <li>Vite</li>
+      <li>Pinia</li>
+      <li>TypeScript</li>
+      <li>Fastify</li>
+      <li>Prisma + MySQL</li>
+      <li>Taro + React</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>技术要点</h2>
+    <ul class="points">
+      <li><b>服务端命中判定</b> —— 前端只上报归一化坐标（0-1），服务端换算像素坐标后与热点做距离判定，结果改不了；热点用百分比定位，换设备换分辨率不用重算。</li>
+      <li><b>玩法闭环</b> —— 提示题 / 通关题双答题节点，提示数量以本关差异数封顶；每关 3 张备选图服务端随机下发（多图轮换），进度由服务端管理。</li>
+      <li><b>抽奖三件套</b> —— 后端先定奖、前端转盘只负责转到指定扇区；库存原子扣减（UPDATE ... WHERE stock > 0）防超发；幂等占位防连点重放。</li>
+      <li><b>合规动作</b> —— 概率公示接口只下发奖品总数与理论概率，不下发剩余库存；规则页覆盖参与条件、兑奖方式、隐私政策等有奖销售法定披露项。</li>
+      <li><b>身份与部署</b> —— H5 匿名身份（localStorage 随机 id）免授权登录即可玩；小程序端由微信云托管注入 openid；H5 产物与后端同源挂载，免跨域配置。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>界面截图</h2>
+    <div class="gallery">
+      <a href="assets/sdg-entry.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/sdg-entry.png" alt="活动入口与关卡进度" width="390" height="844" loading="lazy"></a>
+      <a href="assets/sdg-level.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/sdg-level.png" alt="找不同对局界面" width="390" height="844" loading="lazy"></a>
+      <a href="assets/sdg-lottery.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/sdg-lottery.png" alt="大转盘与中奖结果" width="390" height="844" loading="lazy"></a>
+    </div>
+    <p class="gal-hint">左右滑动查看，点击可放大原图。</p>
+  </section>
+
+  <footer>
+    <span>© <span id="y">2026</span> Liang Luo</span>
+    <a href="/">返回作品集 →</a>
+  </footer>
+
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

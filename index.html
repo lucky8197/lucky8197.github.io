@@ -6,8 +6,7 @@
   怎么改：
   1. 改文字 —— 直接在下面找中文内容替换
   2. 加一个项目 —— 复制 <article class="card"> 整块，粘到 .projects 里
-  3. 加一个技能标签 —— 复制 <li> 一项
-  4. 改完保存，推送到 GitHub 自动更新（约 30 秒生效）
+  3. 改完保存，推送到 GitHub 自动更新（约 30 秒生效）
   ============================================================
 -->
 <html lang="zh-CN">
@@ -15,7 +14,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Liang Luo · 作品集</title>
-<meta name="description" content="Liang Luo 的作品集：7 年全栈开发，覆盖 Web 前端与后端、微信小程序 / 小游戏，以及 C++/Qt 底层客户端。">
+<meta name="description" content="Liang Luo 的作品集：全职自由程序员，8 年经验，已交付 20+ 应用与游戏项目。小程序 / Web / App 定制开发，2D / H5 互动游戏（Unity / Cocos / Godot）。">
 <meta property="og:title" content="Liang Luo · 作品集">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -62,13 +61,6 @@ h2{
   display:flex;align-items:center;gap:9px;
 }
 h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
-.about p{margin:0 0 14px;color:var(--muted)}
-.about p:last-of-type{margin-bottom:0}
-.skills{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:20px 0 0;list-style:none}
-.skills li{
-  font-size:13px;color:var(--muted);padding:4px 11px;
-  border:1px solid var(--border);border-radius:6px;
-}
 
 /* ---- 项目卡片 ---- */
 .projects{display:grid;gap:14px}
@@ -100,6 +92,8 @@ a.meta:hover{text-decoration:underline}
   transition:transform .18s,border-color .18s;
 }
 .shots img:hover{transform:translateY(-3px);border-color:var(--accent)}
+.shots.v{flex-direction:column}
+.shots.v img{width:150px}
 
 /* ---- 页脚 ---- */
 footer{
@@ -126,38 +120,12 @@ footer{
   <header class="hero">
     <div class="avatar">LL</div>
     <h1>Liang Luo</h1>
-    <p class="tagline">7 年全栈开发。从 C++/Qt 底层客户端，到 Web 全栈与微信小程序 / 小游戏。</p>
+    <p class="tagline">全职自由程序员 · 8 年经验，已交付 20+ 项目。小程序 / Web / App 定制开发，2D / H5 互动游戏（Unity / Cocos / Godot）。</p>
     <nav class="links">
       <a href="https://github.com/lucky8197">GitHub</a>
       <a href="mailto:1245052165@qq.com">邮箱</a>
     </nav>
   </header>
-
-  <section class="about">
-    <h2>关于</h2>
-    <p>
-      7 年开发经验，覆盖 C++/Qt 桌面与跨平台客户端、Web 全栈、微信小程序与小游戏三条技术线。
-      习惯从需求分析、架构设计一路做到上线交付，也习惯把技术方案与文档写清楚，让协作成本降下来。
-    </p>
-    <p>
-      OpenHarmony Qt 生态核心贡献者，主导窗口系统与焦点管理等底层模块适配，为钉钉、360 压缩等厂商
-      提供过技术支持。擅长用 GDB / Valgrind / Perf 定位内存泄漏与性能瓶颈，遇到疑难问题习惯翻
-      官方文档和底层源码找根因。
-    </p>
-    <ul class="skills">
-      <li>全栈开发</li>
-      <li>Vue3 / uni-app / React</li>
-      <li>TypeScript</li>
-      <li>Node.js</li>
-      <li>微信小程序 / 小游戏</li>
-      <li>微信云开发</li>
-      <li>C++ / Qt</li>
-      <li>OpenHarmony 鸿蒙</li>
-      <li>Linux / 性能调优</li>
-      <li>信创国产化适配</li>
-      <li>Unity / Cocos Creator</li>
-    </ul>
-  </section>
 
   <section>
     <h2>项目</h2>
@@ -211,6 +179,59 @@ footer{
             <a href="assets/game-home.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-home.jpg" alt="主界面" width="104" height="221" loading="lazy"></a>
             <a href="assets/game-upgrade.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-upgrade.jpg" alt="属性升级" width="104" height="221" loading="lazy"></a>
             <a href="assets/game-skill.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/game-skill.jpg" alt="战斗与技能效果" width="104" height="221" loading="lazy"></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-grid">
+          <div class="card-main">
+            <div class="card-head">
+              <h3><a href="work-spotdiff.html">找不同闯关 · H5 活动游戏</a></h3>
+              <span class="meta">成品工程</span>
+            </div>
+            <p>
+              找不同 + 答题绑定 + 大转盘的 H5 活动游戏：3 关各找 5 / 7 / 10 处不同，答对提示题解锁位置提示，
+              通关答题进下一关，三关全过解锁转盘抽奖（后端定奖 + 库存原子扣减 + 幂等防重放）。
+              命中判定放服务端、坐标归一化适配任意机型，同一套玩法另出 Taro 小程序端。
+            </p>
+            <ul class="tags">
+              <li>Vue 3 + TypeScript</li>
+              <li>Fastify + Prisma + MySQL</li>
+              <li>Taro 小程序</li>
+            </ul>
+          </div>
+          <div class="shots">
+            <a href="assets/sdg-entry.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/sdg-entry.png" alt="关卡进度与入口" width="104" height="225" loading="lazy"></a>
+            <a href="assets/sdg-level.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/sdg-level.png" alt="找不同对局" width="104" height="225" loading="lazy"></a>
+            <a href="assets/sdg-lottery.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/sdg-lottery.png" alt="大转盘与中奖结果" width="104" height="225" loading="lazy"></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-grid">
+          <div class="card-main">
+            <div class="card-head">
+              <h3><a href="work-pricewatch.html">盯价 PriceWatch · 价格库存监控</a></h3>
+              <span class="meta">运行中</span>
+            </div>
+            <p>
+              通用价格与库存监控系统，当前监控奥莱站 223 个商品，15 分钟一轮定时采集。
+              降价 / 尺码补货 / 新商品 / 重新上架四类事件实时推送飞书，24 小时去重合并防骚扰；
+              Web 面板提供价格历史曲线、尺码库存矩阵与事件时间线，systemd 部署于阿里云 ECS 持续运行。
+            </p>
+            <ul class="tags">
+              <li>Python / Flask</li>
+              <li>APScheduler</li>
+              <li>SQLite</li>
+              <li>飞书机器人</li>
+            </ul>
+          </div>
+          <div class="shots v">
+            <a href="assets/pw-list.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/pw-list.png" alt="商品监控列表" width="150" height="42" loading="lazy"></a>
+            <a href="assets/pw-detail.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/pw-detail.png" alt="尺码库存与价格历史" width="150" height="81" loading="lazy"></a>
+            <a href="assets/pw-events.png" target="_blank" rel="noopener" title="查看原图"><img src="assets/pw-events.png" alt="事件时间线" width="150" height="88" loading="lazy"></a>
           </div>
         </div>
       </article>
