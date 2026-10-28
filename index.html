@@ -63,7 +63,8 @@ h2{
 h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
 
 /* ---- 项目卡片 ---- */
-.projects{display:grid;gap:14px}
+/* 显式 minmax(0,1fr)：默认 auto 轨道会被卡片 min-content（缩略图带）撑开，移动端横向溢出 */
+.projects{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
 .card{
   padding:22px 24px;background:var(--surface);
   border:1px solid var(--border);border-radius:14px;
@@ -104,7 +105,9 @@ footer{
 
 @media (max-width:640px){
   .card-grid{flex-direction:column;gap:18px}
-  .shots{width:100%;overflow-x:auto;padding-bottom:6px}
+  /* flex 子项默认 min-width:auto，缩略图带 width:100% 会把卡片撑出视口 */
+  .card-grid>*{min-width:0}
+  .shots{width:100%;min-width:0;overflow-x:auto;padding-bottom:6px}
 }
 @media (max-width:560px){
   body{padding:0 18px 56px}
