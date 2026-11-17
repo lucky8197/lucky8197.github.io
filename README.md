@@ -13,12 +13,39 @@ work-game.html        暗能共鸣 · 微信小游戏
 work-spotdiff.html    找不同闯关 · H5 活动游戏
 work-quiz.html        答题测算 · 知识闯关活动
 work-pricewatch.html  盯价 PriceWatch · 价格库存监控
+work-sky.html         天空社区 · 资讯社区 App
+work-trackmap.html    轨迹记录生成器 · 行程海报 App
+work-dungeon.html     像素地牢冒险 · Godot 2D
+work-birds.html       愤怒的小鸟 · Godot 2D 物理游戏
 work-qt.html          Qt 鸿蒙化适配 · OpenHarmony
 assets/               项目截图（480px 宽 JPEG，首页缩略图与详情页共用）
+assets/video/         项目录屏（H.264 MP4 + 同名 JPG 封面）
 robots.txt            爬虫规则
-sitemap.xml           站点地图（首页 + 6 个详情页）
+sitemap.xml           站点地图（首页 + 10 个详情页）
 .nojekyll             跳过 Jekyll 处理，直接静态托管
 ```
+
+## 视频规范
+
+录屏统一放在 `assets/video/`，命名 `<项目名>.mp4`，并生成同名 `<项目名>.jpg` 作封面（`<video poster="...">`）。
+没有封面时浏览器会停在第一帧，若首帧是黑场就会显示成黑框。
+
+转码命令（H.264 + faststart + 静音，30fps）：
+
+```bash
+ffmpeg -i 原视频.mp4 -c:v libx264 -preset slow -crf 30 -profile:v main \
+  -pix_fmt yuv420p -r 30 -movflags +faststart -an 输出.mp4
+```
+
+**上传前务必检查画面里的隐私信息**：手机号、真实账号、服务器 IP、浏览器地址栏。必要时用局部模糊：
+
+```bash
+ffmpeg -i in.mp4 -filter_complex \
+ "[0:v]crop=W:H:X:Y,scale=540:-2[base];[base]split[b1][b2];\
+  [b2]crop=w:h:x:y,gblur=sigma=14[bl];[b1][bl]overlay=x:y[v]" -map "[v]" ... out.mp4
+```
+
+已接入的视频：天空社区、轨迹记录生成器、像素地牢、愤怒的小鸟、PriceWatch 面板。
 
 ## 怎么改
 

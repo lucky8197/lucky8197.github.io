@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>天空社区 · Android / iOS 双端 App — Liang Luo</title>
+<meta name="description" content="天空社区：资讯聚合社区 App，Android 与 iOS 双端，信息流、详情、分享海报与深色模式，手机号验证码登录。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fbfbfa;--surface:#fff;--text:#17171a;--muted:#6d6d72;--border:rgba(0,0,0,.09);--accent:#2563eb;--accent-soft:rgba(37,99,235,.08)}
+@media (prefers-color-scheme:dark){
+:root{--bg:#101012;--surface:#191919;--text:#f2f2f0;--muted:#9b9ba1;--border:rgba(255,255,255,.11);--accent:#6ea8fe;--accent-soft:rgba(110,168,254,.13)}
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 24px 72px;background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:32px;padding:7px 15px;border:1px solid var(--border);border-radius:999px;color:var(--muted);text-decoration:none;font-size:13px;transition:border-color .18s,color .18s}
+.back:hover{border-color:var(--accent);color:var(--accent)}
+.hero{padding:36px 0 8px}
+.hero .flag{display:inline-block;font-size:12px;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:5px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.3;margin:0 0 10px;font-weight:600;letter-spacing:-.02em}
+.tagline{margin:0;color:var(--muted);font-size:15px}
+section{padding:44px 0 0}
+h2{font-size:15px;font-weight:600;margin:0 0 18px;display:flex;align-items:center;gap:9px}
+h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
+.about p{margin:0 0 14px;color:var(--muted)}
+.about p:last-of-type{margin-bottom:0}
+.points{list-style:none;padding:0;margin:0}
+.points li{position:relative;padding:0 0 14px 20px;color:var(--muted);font-size:14.5px}
+.points li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.points b{color:var(--text);font-weight:500}
+.tags{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
+
+/* ---- 视频播放器 ---- */
+.player{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:14px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;
+}
+.player video{
+  display:block;border-radius:10px;background:#000;
+  width:auto;max-width:100%;max-height:72vh;
+}
+.player .portrait video{height:560px}
+.player .landscape video{width:100%;flex:1 1 520px}
+.player-meta{flex:1 1 260px;min-width:220px}
+.player-meta h3{font-size:14px;margin:0 0 8px;font-weight:600}
+.player-meta p{margin:0 0 10px;color:var(--muted);font-size:13.5px}
+.player-meta ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.player-meta li{font-size:11.5px;color:var(--muted);border:1px solid var(--border);padding:2px 8px;border-radius:5px}
+.video-hint{color:var(--muted);font-size:12.5px;margin:10px 0 0}
+
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;transition:color .18s}
+footer a:hover{color:var(--accent)}
+@media (max-width:560px){
+  body{padding:0 18px 56px}
+  h1{font-size:24px}
+  .player{padding:10px}
+  .player .portrait video{height:auto;width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="/">← 返回作品集</a>
+
+  <header class="hero">
+    <span class="flag">Android / iOS 双端</span>
+    <h1>天空社区 · 资讯社区 App</h1>
+    <p class="tagline">信息流 + 频道 + 搜索 + 分享海报 · 双端同一套代码</p>
+  </header>
+
+  <section class="about">
+    <h2>项目介绍</h2>
+    <p>
+      一个面向资讯与话题讨论的社区型 App：首页信息流按「全部 / 市场 / 科技 / 区块链 / 商业 / 宏观」分频道，
+      支持下拉刷新、上拉加载与按频道切换；文章详情、搜索、个人中心、深色模式一并打通。
+      内容可一键生成分享海报，用于站外拉新。
+    </p>
+    <p>
+      Android 与 iOS 共用一套业务代码，两端行为一致；登录走手机号 + 短信验证码，
+      未登录状态下可浏览、进入个人中心时再引导登录。
+    </p>
+    <ul class="tags">
+      <li>uni-app</li>
+      <li>Vue 3</li>
+      <li>Android / iOS</li>
+      <li>短信验证码登录</li>
+      <li>Canvas 分享海报</li>
+      <li>深色模式</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>演示录屏</h2>
+    <div class="player">
+      <div class="portrait">
+        <video controls playsinline preload="metadata" poster="assets/video/sky-community.jpg">
+          <source src="assets/video/sky-community.mp4" type="video/mp4">
+          你的浏览器不支持 video 标签，可<a href="assets/video/sky-community.mp4">直接下载观看</a>。
+        </video>
+      </div>
+      <div class="player-meta">
+        <h3>端到端操作流程</h3>
+        <p>手机号验证码登录 → 频道信息流 → 文章详情 → 分享海报生成 → 个人中心与深色模式切换。</p>
+        <ul>
+          <li>50 秒</li>
+          <li>竖屏</li>
+          <li>无声</li>
+        </ul>
+      </div>
+    </div>
+    <p class="video-hint">录屏已静音、压缩为 H.264，手机与桌面浏览器均可直接播放。</p>
+  </section>
+
+  <section>
+    <h2>功能要点</h2>
+    <ul class="points">
+      <li><b>信息流与频道</b> —— 顶部分类横滑切换，支持下拉刷新与分页加载；不同频道复用同一套列表组件，减少重复代码。</li>
+      <li><b>分享海报</b> —— 用 Canvas 动态绘制带二维码的海报，不依赖截图或第三方截图库，生成结果可直接保存到相册。</li>
+      <li><b>登录态</b> —— 手机号 + 短信验证码，含 60 秒倒计时与重复发送限制；未登录可浏览，触发个人中心时才引导登录，降低首屏门槛。</li>
+      <li><b>双端一致</b> —— Android 与 iOS 由同一套代码产出，交互与样式保持一致，维护成本只有一份。</li>
+      <li><b>深色模式</b> —— 个人中心可手动切换深浅色，配色跟随主题变量整体切换。</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>© <span id="y">2026</span> Liang Luo</span>
+    <a href="/">返回作品集 →</a>
+  </footer>
+
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
