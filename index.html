@@ -14,7 +14,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Liang Luo · 作品集</title>
-<meta name="description" content="Liang Luo 的作品集：全职自由程序员，8 年经验，已交付 20+ 应用与游戏项目。小程序 / Web / App 定制开发，2D / H5 互动游戏（Unity / Cocos / Godot）。">
+<meta name="description" content="Liang Luo 的作品集：8 年全栈开发经验，从需求梳理到上线交付。小程序 / Web / App 定制开发，2D / H5 互动游戏（Unity / Cocos / Godot）。">
 <meta property="og:title" content="Liang Luo · 作品集">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -96,6 +96,16 @@ h2{
   margin-left:auto;font:11px/1.5 var(--mono);font-weight:400;
   color:var(--ink-soft);letter-spacing:.02em;text-transform:none;
 }
+
+/* ---- 能力范围 ---- */
+.scope{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule)}
+@media (max-width:640px){.scope{grid-template-columns:minmax(0,1fr)}}
+.scope-item{background:var(--paper);padding:22px 20px}
+.scope-item h3{
+  font-size:14px;margin:0 0 8px;font-weight:600;letter-spacing:-.01em;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.scope-item p{margin:0;color:var(--ink-soft);font-size:13.5px;line-height:1.7}
 
 /* ---- 项目卡片：图纸边界 ---- */
 .projects{display:grid;grid-template-columns:minmax(0,1fr);gap:0;border-top:1px solid var(--rule)}
@@ -191,13 +201,13 @@ a:focus-visible,button:focus-visible{
       <span>·</span>
       <b>FULL-STACK</b>
       <span>·</span>
-      <span>7 YRS</span>
+      <span>8 YRS</span>
       <span>·</span>
-      <span>UPDATED 2026</span>
+      <span>企业级交付 + 独立产品</span>
     </div>
     <div class="avatar">LL</div>
     <h1>Liang Luo</h1>
-    <p class="tagline">全职自由程序员 · 8 年经验，已交付 20+ 项目。小程序 / Web / App 定制开发，2D / H5 互动游戏（Unity / Cocos / Godot）。</p>
+    <p class="tagline">8 年全栈开发经验，从需求梳理、架构设计一路做到上线交付。覆盖小程序 / Web / App 定制开发，以及 2D / H5 互动游戏（Unity / Cocos / Godot）。</p>
     <nav class="links">
       <a href="https://github.com/lucky8197">GitHub</a>
       <a href="mailto:1245052165@qq.com">邮箱</a>
@@ -207,6 +217,31 @@ a:focus-visible,button:focus-visible{
   <section>
     <div class="sec-head">
       <span class="sec-num">01</span>
+      <h2>能力范围</h2>
+    </div>
+    <div class="scope">
+      <div class="scope-item">
+        <h3>小程序 / Web / App</h3>
+        <p>uni-app、Vue 3、React 前后端一体；微信小程序与云开发；后台管理与接口服务。</p>
+      </div>
+      <div class="scope-item">
+        <h3>2D / H5 互动游戏</h3>
+        <p>Unity、Cocos Creator、Godot 项目开发；页游与活动类 H5 小游戏。</p>
+      </div>
+      <div class="scope-item">
+        <h3>底层与性能</h3>
+        <p>C++ / Qt 桌面与跨平台客户端；GDB / Valgrind / Perf 定位内存与性能问题。</p>
+      </div>
+      <div class="scope-item">
+        <h3>技术协助</h3>
+        <p>既有代码重构、架构梳理、部署上线与运维排查。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">02</span>
       <h2>项目</h2>
       <span class="h2-hint">点击标题查看项目详情 →</span>
     </div>
