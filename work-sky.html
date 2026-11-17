@@ -89,7 +89,7 @@ footer a:hover{color:var(--accent)}
     </p>
     <p>
       交付范围是四端：Android 与 iOS 双端 App、Java 服务端、Vue3 管理后台、H5 分享落地页。
-      后台负责新闻的富文本编辑、配图、摘要、定时发布与草稿、栏目管理，以及阅读量趋势和 Excel 导出。
+      后台负责内容发布：文章和短资讯两种形态，富文本编辑、配图、摘要、栏目归属，立即 / 定时 / 存草稿三种发布方式；另有栏目管理（可拖拽排序、指定头条）和数据统计（阅读量趋势、栏目分布、Top 10、Excel 导出）。
       登录只做手机号加短信验证码，未登录可以正常浏览全部内容。
     </p>
     <ul class="tags">
@@ -155,12 +155,12 @@ footer a:hover{color:var(--accent)}
   <section>
     <h2>管理后台</h2>
     <div class="gallery wide">
-      <a href="assets/admin-dashboard.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-dashboard.jpg" alt="数据统计" width="520" height="361" loading="lazy"></a>
-      <a href="assets/admin-articles.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-articles.jpg" alt="新闻管理" width="520" height="361" loading="lazy"></a>
-      <a href="assets/admin-article-edit.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-article-edit.jpg" alt="富文本编辑与发布设置" width="520" height="361" loading="lazy"></a>
-      <a href="assets/admin-categories.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-categories.jpg" alt="栏目管理" width="520" height="361" loading="lazy"></a>
+      <a href="assets/admin-dashboard.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-dashboard.jpg" alt="数据统计" width="520" height="325" loading="lazy"></a>
+      <a href="assets/admin-articles.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-articles.jpg" alt="新闻管理" width="520" height="325" loading="lazy"></a>
+      <a href="assets/admin-article-edit.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-article-edit.jpg" alt="富文本编辑与发布设置" width="520" height="325" loading="lazy"></a>
+      <a href="assets/admin-categories.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-categories.jpg" alt="栏目管理" width="520" height="325" loading="lazy"></a>
     </div>
-    <p class="gal-hint">左右滑动查看。后台是独立的 Vue3 + Element Plus 单页应用，挂在 <code>/admin/</code> 子路径下。</p>
+    <p class="gal-hint">左右滑动查看。后台是独立的 Vue3 + Element Plus 单页应用，挂在 <code>/admin/</code> 子路径下。统计支持近 7 / 30 / 90 天与自定义区间，栏目顺序可拖拽调整，改完 App 端下次进入即生效。</p>
   </section>
 
   <section>
@@ -172,6 +172,7 @@ footer a:hover{color:var(--accent)}
       <li><b>定时发布与草稿</b>。发布方式分立即、定时、存草稿三种。到点由服务端触发发布，不依赖打开后台，App 端只显示已发布状态的文章。</li>
       <li><b>本机存储的边界</b>。浏览记录和收藏都只存在设备本地，不做云端同步；后台能看到的是阅读量这类匿名统计，不涉及用户行为画像。</li>
       <li><b>分享链路</b>。海报由服务端提供数据、客户端合成，含标题、摘要、配图和二维码；复制链接走 H5 落地页，页面本身 1.1 KB、零外部资源，底部放下载引导，微信内打开即可阅读。</li>
+      <li><b>阅读量的两种口径</b>。页面上「总阅读量」卡片含已删除文章，Excel 导出则按 <code>deleted = 0</code> 过滤、不含回收站——内容盘点不该算已删的稿子，但运营拿导出行数去对总数会对不上，所以两处都写明了口径。阅读量给四列：累计取文章自身的计数，近 7 / 30 / 90 天从阅读日志算，三个区间固定并存，不跟页面选的区间联动。</li>
       <li><b>登录与权限</b>。App 端手机号加短信验证码，登录态本地保持；未登录可浏览全部内容。后台单独一套账号体系，密码用 BCrypt 哈希，不存明文，连续 5 次错误锁定 10 分钟，登录有效期 7 天。</li>
     </ul>
   </section>
