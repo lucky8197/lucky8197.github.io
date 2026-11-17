@@ -13,7 +13,7 @@ work-game.html        暗能共鸣 · 微信小游戏
 work-spotdiff.html    找不同闯关 · H5 活动游戏
 work-quiz.html        答题测算 · 知识闯关活动
 work-pricewatch.html  盯价 PriceWatch · 价格库存监控
-work-sky.html         天空社区 · 资讯社区 App
+work-sky.html         资讯类 App · 四端交付案例（无截图，保密）
 work-trackmap.html    轨迹记录生成器 · 行程海报 App
 work-dungeon.html     像素地牢冒险 · Godot 2D
 work-birds.html       愤怒的小鸟 · Godot 2D 物理游戏
@@ -45,7 +45,7 @@ ffmpeg -i in.mp4 -filter_complex \
   [b2]crop=w:h:x:y,gblur=sigma=14[bl];[b1][bl]overlay=x:y[v]" -map "[v]" ... out.mp4
 ```
 
-已接入的视频：天空社区、轨迹记录生成器、像素地牢、愤怒的小鸟、PriceWatch 面板。
+已接入的视频：轨迹记录生成器、像素地牢、愤怒的小鸟、PriceWatch 面板。
 
 ## 怎么改
 
