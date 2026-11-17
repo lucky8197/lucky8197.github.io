@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>找不同闯关 · H5 活动游戏 — Liang Luo</title>
-<meta name="description" content="找不同闯关 H5 活动游戏：找不同 + 答题绑定 + 大转盘抽奖完整闭环，Vue 3 + Fastify + MySQL 实现，服务端命中判定与合规抽奖，另有 Taro 小程序端。">
+<meta name="description" content="找不同闯关 H5 活动游戏：找不同、答题绑定、大转盘抽奖整套都有，Vue 3 + Fastify + MySQL 实现，服务端命中判定与合规抽奖，另有 Taro 小程序端。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
 :root{--bg:#fbfbfa;--surface:#fff;--text:#17171a;--muted:#6d6d72;--border:rgba(0,0,0,.09);--accent:#2563eb;--accent-soft:rgba(37,99,235,.08)}
@@ -62,7 +62,7 @@ footer a:hover{color:var(--accent)}
     <p>
       一套可直接部署上线的营销活动游戏：玩家在 3 个关卡中分别找出 5 / 7 / 10 处不同；
       卡关时点「获取提示」弹答题，答对解锁 1 处位置提示；找齐后弹通关答题，答对进下一关；
-      三关全部通过解锁大转盘，抽中实物填写收货信息。从玩法、判定、抽奖到概率公示是一条完整闭环。
+      三关全部通过解锁大转盘，抽中实物填写收货信息。从玩法、判定、抽奖到概率公示是一条走完的链路。
     </p>
     <p>
       前端 H5（Vue 3）与小程序（Taro + React）共用同一套后端接口；后端 Fastify + Prisma + MySQL，
@@ -82,11 +82,11 @@ footer a:hover{color:var(--accent)}
   <section>
     <h2>技术要点</h2>
     <ul class="points">
-      <li><b>服务端命中判定</b> —— 前端只上报归一化坐标（0-1），服务端换算像素坐标后与热点做距离判定，结果改不了；热点用百分比定位，换设备换分辨率不用重算。</li>
-      <li><b>玩法闭环</b> —— 提示题 / 通关题双答题节点，提示数量以本关差异数封顶；每关 3 张备选图服务端随机下发（多图轮换），进度由服务端管理。</li>
-      <li><b>抽奖三件套</b> —— 后端先定奖、前端转盘只负责转到指定扇区；库存原子扣减（UPDATE ... WHERE stock > 0）防超发；幂等占位防连点重放。</li>
-      <li><b>合规动作</b> —— 概率公示接口只下发奖品总数与理论概率，不下发剩余库存；规则页覆盖参与条件、兑奖方式、隐私政策等有奖销售法定披露项。</li>
-      <li><b>身份与部署</b> —— H5 匿名身份（localStorage 随机 id）免授权登录即可玩；小程序端由微信云托管注入 openid；H5 产物与后端同源挂载，免跨域配置。</li>
+      <li><b>服务端命中判定</b>。前端只上报归一化坐标（0-1），服务端换算像素坐标后与热点做距离判定，结果改不了；热点用百分比定位，换设备换分辨率不用重算。</li>
+      <li><b>玩法流程</b>。提示题和通关题两个答题节点，提示数量以本关差异数封顶；每关 3 张备选图由服务端随机下发轮换，进度也存在服务端。</li>
+      <li><b>抽奖三件套</b>。后端先定奖、前端转盘只负责转到指定扇区；库存原子扣减（UPDATE ... WHERE stock > 0）防超发；幂等占位防连点重放。</li>
+      <li><b>合规动作</b>。概率公示接口只下发奖品总数与理论概率，不下发剩余库存；规则页覆盖参与条件、兑奖方式、隐私政策等有奖销售法定披露项。</li>
+      <li><b>身份与部署</b>。H5 匿名身份（localStorage 随机 id）免授权登录即可玩；小程序端由微信云托管注入 openid；H5 产物与后端同源挂载，免跨域配置。</li>
     </ul>
   </section>
 
