@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>天空社区 · Android / iOS 双端 App — Liang Luo</title>
-<meta name="description" content="天空社区：资讯聚合社区 App，Android 与 iOS 双端，信息流、详情、分享海报与深色模式，手机号验证码登录。">
+<title>天空社区 · 财经资讯 App（Android / iOS + 管理后台）— Liang Luo</title>
+<meta name="description" content="天空社区：财经资讯 App，Android / iOS 双端 + Java 服务端 + Vue3 管理后台 + H5 分享落地页。uni-app X 蒸汽模式原生渲染，接口本地实测 4.4-6.4ms。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M11 8v13h9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
 :root{--bg:#fbfbfa;--surface:#fff;--text:#17171a;--muted:#6d6d72;--border:rgba(0,0,0,.09);--accent:#2563eb;--accent-soft:rgba(37,99,235,.08)}
@@ -31,25 +31,29 @@ h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--a
 .points b{color:var(--text);font-weight:500}
 .tags{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:7px}
 .tags li{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:2px 9px;border-radius:5px}
-
-/* ---- 视频播放器 ---- */
-.player{
-  background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:14px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;
-}
-.player video{
-  display:block;border-radius:10px;background:#000;
-  width:auto;max-width:100%;max-height:72vh;
-}
+.player{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.player video{display:block;border-radius:10px;background:#000;width:auto;max-width:100%;max-height:72vh}
 .player .portrait video{height:560px}
-.player .landscape video{width:100%;flex:1 1 520px}
 .player-meta{flex:1 1 260px;min-width:220px}
 .player-meta h3{font-size:14px;margin:0 0 8px;font-weight:600}
 .player-meta p{margin:0 0 10px;color:var(--muted);font-size:13.5px}
 .player-meta ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px}
 .player-meta li{font-size:11.5px;color:var(--muted);border:1px solid var(--border);padding:2px 8px;border-radius:5px}
 .video-hint{color:var(--muted);font-size:12.5px;margin:10px 0 0}
-
+.gallery{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 14px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.gallery a{flex:0 0 auto;display:block;line-height:0;border-radius:12px;scroll-snap-align:start}
+.gallery img{width:200px;height:auto;display:block;border-radius:12px;border:1px solid var(--border);transition:transform .18s,border-color .18s}
+.gallery img:hover{transform:translateY(-3px);border-color:var(--accent)}
+.gallery.wide img{width:520px}
+.gal-hint{color:var(--muted);font-size:12.5px;margin:-4px 0 0}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:6px 0 0}
+.metrics div{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.metrics span{display:block;color:var(--muted);font-size:12.5px;margin-bottom:4px}
+.metrics b{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.metrics em{display:block;color:var(--muted);font-size:11.5px;font-style:normal;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 0}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);color:var(--muted)}
+th{color:var(--text);font-weight:500}
 footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--muted);text-decoration:none;transition:color .18s}
 footer a:hover{color:var(--accent)}
@@ -58,6 +62,9 @@ footer a:hover{color:var(--accent)}
   h1{font-size:24px}
   .player{padding:10px}
   .player .portrait video{height:auto;width:100%}
+  .gallery img{width:170px}
+  .gallery.wide img{width:300px}
+  th,td{padding:6px;font-size:12.5px}
 }
 </style>
 </head>
@@ -67,30 +74,60 @@ footer a:hover{color:var(--accent)}
   <a class="back" href="/">← 返回作品集</a>
 
   <header class="hero">
-    <span class="flag">Android / iOS 双端</span>
-    <h1>天空社区 · 资讯社区 App</h1>
-    <p class="tagline">信息流 + 频道 + 搜索 + 分享海报 · 双端同一套代码</p>
+    <span class="flag">Android / iOS / 服务端 / 管理后台 · 四端交付</span>
+    <h1>天空社区 · 财经资讯 App</h1>
+    <p class="tagline">uni-app X 原生渲染 · Java 服务端 · Vue3 管理后台 · H5 分享落地页</p>
   </header>
 
   <section class="about">
     <h2>项目介绍</h2>
     <p>
-      资讯和话题讨论类的社区 App。首页信息流按「全部 / 市场 / 科技 / 区块链 / 商业 / 宏观」分频道，
-      支持下拉刷新、上拉加载和按频道切换。文章详情、搜索、个人中心、深色模式都做了。
-      内容可以一键生成分享海报，用来往站外拉人。
+      一款财经资讯 App，内容以文章为主体：首页聚合头条、栏目和最新列表，可按栏目切换，
+      支持全站搜索；文章详情渲染富文本。读过和想留的文章可以在本机留下浏览记录与收藏，
+      分享时生成带二维码的海报存进相册，或者把文章链接发到微信，打开是带下载引导的 H5 页面。
+      深色和浅色两套主题可手动切换并记住选择。
     </p>
     <p>
-      Android 和 iOS 共用一套业务代码，两端行为一致。登录用手机号加短信验证码，
-      没登录也能浏览，进个人中心才引导登录。
+      交付范围是四端：Android 与 iOS 双端 App、Java 服务端、Vue3 管理后台、H5 分享落地页。
+      后台负责新闻的富文本编辑、配图、摘要、定时发布与草稿、栏目管理，以及阅读量趋势和 Excel 导出。
+      登录只做手机号加短信验证码，未登录可以正常浏览全部内容。
     </p>
     <ul class="tags">
-      <li>uni-app</li>
-      <li>Vue 3</li>
-      <li>Android / iOS</li>
-      <li>短信验证码登录</li>
-      <li>Canvas 分享海报</li>
-      <li>深色模式</li>
+      <li>uni-app X（UTS）</li>
+      <li>蒸汽模式原生渲染</li>
+      <li>Spring Boot</li>
+      <li>MyBatis-Plus</li>
+      <li>Vue 3 + Element Plus</li>
+      <li>wangEditor</li>
+      <li>MySQL</li>
+      <li>Nginx</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>实测数据</h2>
+    <div class="metrics">
+      <div><span>列表接口</span><b>4.4–6.4 ms</b><em>服务器本地，10 次取中位数</em></div>
+      <div><span>列表响应（gzip）</span><b>2.9 KB</b><em>20 条，原始 8.3 KB</em></div>
+      <div><span>滑动卡顿率</span><b>0.20%</b><em>489 帧中 1 帧，UI 线程 0 帧</em></div>
+      <div><span>H5 分享页</span><b>60 ms</b><em>1.1 KB，无外部资源</em></div>
+    </div>
+    <p class="video-hint">环境为 2 核 / 1756MB 云服务器，JDK 17，HTTPS。</p>
+  </section>
+
+  <section>
+    <h2>App 界面</h2>
+    <div class="gallery">
+      <a href="assets/fin-article.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/fin-article.jpg" alt="文章详情" width="200" height="433" loading="lazy"></a>
+      <a href="assets/fin-article2.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/fin-article2.jpg" alt="文章详情（另一篇）" width="200" height="433" loading="lazy"></a>
+      <a href="assets/fin-history.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/fin-history.jpg" alt="浏览记录" width="200" height="433" loading="lazy"></a>
+      <a href="assets/fin-profile.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/fin-profile.jpg" alt="个人中心" width="200" height="433" loading="lazy"></a>
+      <a href="assets/fin-dark.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/fin-dark.jpg" alt="深色模式开关" width="200" height="433" loading="lazy"></a>
+      <a href="assets/fin-share.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/fin-share.jpg" alt="自建分享面板" width="200" height="433" loading="lazy"></a>
+      <a href="assets/fin-sharepanel.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/fin-sharepanel.jpg" alt="生成分享海报" width="200" height="433" loading="lazy"></a>
+      <a href="assets/fin-login.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/fin-login.jpg" alt="手机号登录" width="200" height="433" loading="lazy"></a>
+    </div>
+    <p class="gal-hint">左右滑动查看，点击可放大原图。</p>
   </section>
 
   <section>
@@ -104,7 +141,7 @@ footer a:hover{color:var(--accent)}
       </div>
       <div class="player-meta">
         <h3>操作流程</h3>
-        <p>手机号验证码登录 → 频道信息流 → 文章详情 → 分享海报生成 → 个人中心与深色模式切换。</p>
+        <p>手机号验证码登录 → 频道信息流 → 文章详情 → 分享 → 个人中心与深色模式切换。</p>
         <ul>
           <li>46 秒</li>
           <li>竖屏</li>
@@ -116,14 +153,40 @@ footer a:hover{color:var(--accent)}
   </section>
 
   <section>
-    <h2>功能要点</h2>
+    <h2>管理后台</h2>
+    <div class="gallery wide">
+      <a href="assets/admin-dashboard.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-dashboard.jpg" alt="数据统计" width="520" height="361" loading="lazy"></a>
+      <a href="assets/admin-articles.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-articles.jpg" alt="新闻管理" width="520" height="361" loading="lazy"></a>
+      <a href="assets/admin-article-edit.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-article-edit.jpg" alt="富文本编辑与发布设置" width="520" height="361" loading="lazy"></a>
+      <a href="assets/admin-categories.jpg" target="_blank" rel="noopener" title="查看原图"><img src="assets/admin-categories.jpg" alt="栏目管理" width="520" height="361" loading="lazy"></a>
+    </div>
+    <p class="gal-hint">左右滑动查看。后台是独立的 Vue3 + Element Plus 单页应用，挂在 <code>/admin/</code> 子路径下。</p>
+  </section>
+
+  <section>
+    <h2>技术要点</h2>
     <ul class="points">
-      <li><b>信息流与频道</b>。顶部分类可以横滑切换，支持下拉刷新和分页加载。各频道复用同一套列表组件，不用为每个频道写一遍。</li>
-      <li><b>分享海报</b>。海报由 Canvas 动态绘制，带二维码，不靠截屏也不引第三方截图库，生成后可以直接存进相册。</li>
-      <li><b>登录态</b>。手机号加短信验证码，60 秒倒计时，重复发送有上限。没登录也能浏览，点进个人中心才引导登录。</li>
-      <li><b>双端一致</b>。Android 和 iOS 由同一套代码产出，交互和样式不会走偏，也只维护一份。</li>
-      <li><b>深色模式</b>。个人中心可以手动切换深浅色，配色跟着主题变量整体变。</li>
+      <li><b>蒸汽模式（Vapor）原生渲染</b>。视图层从虚拟 DOM + diff 改成字节码，逻辑层不用 UTS 编译成 Kotlin，改由引擎驱动。切换前逐条核对了官方硬约束：只能组合式 API、CSS 只支持简单 class 选择器、<code>scroll-view</code> 的 <code>scroll-y</code> 已废弃、<code>&lt;text&gt;</code> 只能有一个文本节点。落地成本是 2 个文件改动加 4 个编译错误，约半天。</li>
+      <li><b>列表接口不带正文</b>。首屏列表返回的正文长度为 0 字符，配图字段保留。列表响应 gzip 后 2.9 KB，20 条数据，弱网下也不会拖慢首屏。</li>
+      <li><b>富文本的渲染边界</b>。编辑器只保留 App 能渲染的格式：标题、加粗、斜体、下划线、有序和无序列表、引用、分割线、图片、链接、对齐、颜色。表格、多列、视频这类 App 渲染不了的，在粘贴时就被拦掉，保证「编辑所见即 App 所见」。</li>
+      <li><b>定时发布与草稿</b>。发布方式分立即、定时、存草稿三种。到点由服务端触发发布，不依赖打开后台，App 端只显示已发布状态的文章。</li>
+      <li><b>本机存储的边界</b>。浏览记录和收藏都只存在设备本地，不做云端同步；后台能看到的是阅读量这类匿名统计，不涉及用户行为画像。</li>
+      <li><b>分享链路</b>。海报由服务端提供数据、客户端合成，含标题、摘要、配图和二维码；复制链接走 H5 落地页，页面本身 1.1 KB、零外部资源，底部放下载引导，微信内打开即可阅读。</li>
+      <li><b>登录与权限</b>。App 端手机号加短信验证码，登录态本地保持；未登录可浏览全部内容。后台单独一套账号体系，密码用 BCrypt 哈希，不存明文，连续 5 次错误锁定 10 分钟，登录有效期 7 天。</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>功能范围</h2>
+    <table>
+      <thead><tr><th>端</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>App（Android / iOS）</td><td>首页、栏目筛选、全站搜索、文章详情、浏览记录、收藏、深浅色主题、分享海报、手机号登录</td></tr>
+        <tr><td>H5 分享落地页</td><td>文章详情网页，底部下载引导，供微信内打开或扫码查看</td></tr>
+        <tr><td>服务端</td><td>数据库与服务端部署、内容数据接口、图片存储、分享与 H5 数据接口</td></tr>
+        <tr><td>管理后台</td><td>账号登录、新闻发布（富文本 / 配图 / 摘要 / 栏目）、定时发布与草稿、新闻管理、栏目管理、数据统计与 Excel 导出</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <footer>
