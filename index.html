@@ -61,6 +61,7 @@ h2{
   display:flex;align-items:center;gap:9px;
 }
 h2::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
+.h2-hint{margin-left:auto;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:0}
 
 /* ---- 项目卡片 ---- */
 /* 显式 minmax(0,1fr)：默认 auto 轨道会被卡片 min-content（缩略图带）撑开，移动端横向溢出 */
@@ -131,7 +132,7 @@ footer{
   </header>
 
   <section>
-    <h2>项目</h2>
+    <h2>项目<span class="h2-hint">点击标题查看项目详情 →</span></h2>
     <div class="projects">
 
       <article class="card">
